@@ -1,5 +1,8 @@
-
 from collections import deque
+
+""" 
+    꿈에서도 구현할 수 있게 외우자, 기본중의 기본이다.
+"""
 
 graph = [  # 쉬운 인덱싱을 위해 첫 번째 을 비워둠
     [],
