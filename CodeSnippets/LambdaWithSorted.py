@@ -1,3 +1,8 @@
+""" 
+    sort 함수의 key로 lambda를 적용한 예시입니다.
+"""
+
+
 def sortfunc(x):
     return x[1]
 
