@@ -49,4 +49,4 @@ dfs(graph, 1, visited)
 
 visited = [False for _ in range(len(graph))]
 q = deque()
-bfs(graph, 1, visited)
+bfs(graph, 1, visited)  # 1 2 3 8 7 4 5 6
