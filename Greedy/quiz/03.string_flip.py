@@ -9,14 +9,11 @@ for i in range(len(S)):
         if is_first0:
             count0 += 1
             is_first0 = False
+            is_first1 = True
     else:
-        is_first0 = True
-
-    if S[i] == '1':
         if is_first1:
             count1 += 1
             is_first1 = False
-    else:
-        is_first1 = True
+            is_first0 = True
 
 print(min(count0, count1))
