@@ -17,7 +17,8 @@ while True:
     d = (d + 3) % 4  # 회전하기
     next_x, next_y = x + directions[d][0], y + directions[d][1]
     next_pos = game_map[next_x][next_y]
-    if next_pos == 0 or next_pos == 2:
+    if next_pos == 0:
+        # 0이면 육지이므로 방문 및 전진 가능하다.
         x, y = next_x, next_y
         game_map[x][y] = 2
         blocked_count = 0

@@ -1,3 +1,5 @@
+from collections import deque
+
 N, M = map(int, input().split())
 plate = []
 for i in range(N):
@@ -19,9 +21,33 @@ def dfs(x, y):
         return True
 
 
+def bfs(x, y):
+    if x < 0 or x > N - 1 or y < 0 or y > M - 1:
+        return False
+
+    if plate[x][y] == 1:
+        return False
+
+    q = deque()
+    q.append((x, y))
+
+    while q:
+        x, y = q.popleft()
+        plate[x][y] = 1
+        next_coords = [(x, y - 1), (x, y + 1), (x - 1, y), (x + 1, y)]
+
+        for coord in next_coords:
+            x, y = coord[0], coord[1]
+            if x < 0 or x > N - 1 or y < 0 or y > M - 1:
+                continue
+            if plate[x][y] == 0:
+                q.append(coord)
+    return True
+
+
 for i in range(N):
     for j in range(M):
-        if dfs(i, j):
+        if bfs(i, j):
             count += 1
 
 print(count)
