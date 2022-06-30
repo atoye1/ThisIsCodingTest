@@ -1,13 +1,14 @@
-def binary_search_recursive(arr, start, end, value):
+def binary_search_recursive(arr, value, start, end):
     if start > end:
         return None
-    mid = (end - start)//2
+    mid = (start + end)//2
     if arr[mid] == value:
         return mid
-    elif arr[mid] < value:
-        return binary_search_recursive(arr, start, mid - 1, value)
+    elif arr[mid] > value:
+        # 재귀적으로 호출하는 결과를 return해줘야 하는 것을 잊지말지
+        return binary_search_recursive(arr, value, start, mid - 1)
     else:
-        return binary_search_recursive(arr, mid + 1, end, value)
+        return binary_search_recursive(arr, value, mid + 1, end)
 
 
 def binary_search_loop(target, List):
